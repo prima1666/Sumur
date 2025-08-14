@@ -1,0 +1,43 @@
+ol.proj.proj4.register(proj4);
+//ol.proj.get("EPSG:3857").setExtent([-20037508.342789, -20037508.342789, 20037508.342789, 20037508.342789]);
+var wms_layers = [];
+
+
+        var lyr_GoogleSatelite_0 = new ol.layer.Tile({
+            'title': 'Google Satelite',
+            'opacity': 1.000000,
+            
+            
+            source: new ol.source.XYZ({
+            attributions: ' ',
+                url: 'http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}'
+            })
+        });
+var format_Sumur_Eksplorasi_1 = new ol.format.GeoJSON();
+var features_Sumur_Eksplorasi_1 = format_Sumur_Eksplorasi_1.readFeatures(json_Sumur_Eksplorasi_1, 
+            {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
+var jsonSource_Sumur_Eksplorasi_1 = new ol.source.Vector({
+    attributions: ' ',
+});
+jsonSource_Sumur_Eksplorasi_1.addFeatures(features_Sumur_Eksplorasi_1);
+cluster_Sumur_Eksplorasi_1 = new ol.source.Cluster({
+  distance: 30,
+  source: jsonSource_Sumur_Eksplorasi_1
+});
+var lyr_Sumur_Eksplorasi_1 = new ol.layer.Vector({
+                declutter: false,
+                source:cluster_Sumur_Eksplorasi_1, 
+                style: style_Sumur_Eksplorasi_1,
+                popuplayertitle: 'Sumur_Eksplorasi',
+                interactive: true,
+                title: '<img src="styles/legend/Sumur_Eksplorasi_1.png" /> Sumur_Eksplorasi'
+            });
+
+lyr_GoogleSatelite_0.setVisible(true);lyr_Sumur_Eksplorasi_1.setVisible(true);
+var layersList = [lyr_GoogleSatelite_0,lyr_Sumur_Eksplorasi_1];
+lyr_Sumur_Eksplorasi_1.set('fieldAliases', {'Point': 'Point', 'X': 'X', 'Y': 'Y', 'LONGITUDE': 'LONGITUDE', 'LATITUDE': 'LATITUDE', 'DATUM': 'DATUM', 'ZONA_UTM': 'ZONA_UTM', 'Status': 'Status', 'field_2': 'field_2', 'CSO/ FS': 'CSO/ FS', 'Penentuan Datum Koordinat': 'Penentuan Datum Koordinat', 'Penyiapan Data/ peta tematik pendukung operasi (Peta Tutupan Lahan, Peta Administrasi, Geologi, Citra Satelit/ Foto Udara, Kehutanan, Peta Wilayah Kerja)': 'Penyiapan Data/ peta tematik pendukung operasi (Peta Tutupan Lahan, Peta Administrasi, Geologi, Citra Satelit/ Foto Udara, Kehutanan, Peta Wilayah Kerja)', 'Survey Pendahuluan/ Scouting Usulan Lokasi Pemboran': 'Survey Pendahuluan/ Scouting Usulan Lokasi Pemboran', 'Survey Topografi untuk Penyusunan DED': 'Survey Topografi untuk Penyusunan DED', 'field_8': 'field_8', 'PLANNING': 'PLANNING', 'Survey Pendahuluan/ Scouting Usulan Lokasi Pemboran_1': 'Survey Pendahuluan/ Scouting Usulan Lokasi Pemboran_1', 'Penyiapan dan Pembuatan Peta Desain Lokasi': 'Penyiapan dan Pembuatan Peta Desain Lokasi', 'Pemasangan dan pengukuran titik kerangka pemetaan (BM) di lokasi': 'Pemasangan dan pengukuran titik kerangka pemetaan (BM) di lokasi', 'Survey Topografi (stake out, akses jalan, cut & fill, peta situasi)': 'Survey Topografi (stake out, akses jalan, cut & fill, peta situasi)', 'Survei Inventarisasi Pemilik Lahan': 'Survei Inventarisasi Pemilik Lahan', 'Offshore Survey hidrography/bathymetry': 'Offshore Survey hidrography/bathymetry', 'field_16': 'field_16', 'SITE PREPARATION / CONSTRUCTION': 'SITE PREPARATION / CONSTRUCTION', 'Survei/ Pengukuran koordinat definitive cellar dengan GNSS': 'Survei/ Pengukuran koordinat definitive cellar dengan GNSS', 'Survei Foto Udara (drone) Lokasi Sumur RFD': 'Survei Foto Udara (drone) Lokasi Sumur RFD', 'Pemetaan as built lokasi sumur': 'Pemetaan as built lokasi sumur', 'Offshore Rig Positioning': 'Offshore Rig Positioning', 'Offshore Meteorology-Ocean (Met-ocean) survey': 'Offshore Meteorology-Ocean (Met-ocean) survey', 'Offshore Marine & Geophysical survey': 'Offshore Marine & Geophysical survey', 'field_24': 'field_24', 'DRILLING': 'DRILLING', 'Monitoring lokasi (Pondasi, Kemiringan rig, Survey drone)': 'Monitoring lokasi (Pondasi, Kemiringan rig, Survey drone)', 'Updating data ke geodatabase': 'Updating data ke geodatabase', 'Offshore Rig Positioning_1': 'Offshore Rig Positioning_1', 'Offshore Meteorology-Ocean (Met-ocean) survey_1': 'Offshore Meteorology-Ocean (Met-ocean) survey_1', 'Offshore Marine & Geophysical survey_1': 'Offshore Marine & Geophysical survey_1', });
+lyr_Sumur_Eksplorasi_1.set('fieldImages', {'Point': 'TextEdit', 'X': 'TextEdit', 'Y': 'TextEdit', 'LONGITUDE': 'TextEdit', 'LATITUDE': 'TextEdit', 'DATUM': 'TextEdit', 'ZONA_UTM': 'TextEdit', 'Status': 'Range', 'field_2': 'TextEdit', 'CSO/ FS': 'TextEdit', 'Penentuan Datum Koordinat': 'TextEdit', 'Penyiapan Data/ peta tematik pendukung operasi (Peta Tutupan Lahan, Peta Administrasi, Geologi, Citra Satelit/ Foto Udara, Kehutanan, Peta Wilayah Kerja)': 'TextEdit', 'Survey Pendahuluan/ Scouting Usulan Lokasi Pemboran': 'TextEdit', 'Survey Topografi untuk Penyusunan DED': 'TextEdit', 'field_8': 'TextEdit', 'PLANNING': 'TextEdit', 'Survey Pendahuluan/ Scouting Usulan Lokasi Pemboran_1': 'TextEdit', 'Penyiapan dan Pembuatan Peta Desain Lokasi': 'TextEdit', 'Pemasangan dan pengukuran titik kerangka pemetaan (BM) di lokasi': 'TextEdit', 'Survey Topografi (stake out, akses jalan, cut & fill, peta situasi)': 'TextEdit', 'Survei Inventarisasi Pemilik Lahan': 'TextEdit', 'Offshore Survey hidrography/bathymetry': 'TextEdit', 'field_16': 'TextEdit', 'SITE PREPARATION / CONSTRUCTION': 'TextEdit', 'Survei/ Pengukuran koordinat definitive cellar dengan GNSS': 'TextEdit', 'Survei Foto Udara (drone) Lokasi Sumur RFD': 'TextEdit', 'Pemetaan as built lokasi sumur': 'TextEdit', 'Offshore Rig Positioning': 'TextEdit', 'Offshore Meteorology-Ocean (Met-ocean) survey': 'TextEdit', 'Offshore Marine & Geophysical survey': 'TextEdit', 'field_24': 'TextEdit', 'DRILLING': 'TextEdit', 'Monitoring lokasi (Pondasi, Kemiringan rig, Survey drone)': 'TextEdit', 'Updating data ke geodatabase': 'TextEdit', 'Offshore Rig Positioning_1': 'TextEdit', 'Offshore Meteorology-Ocean (Met-ocean) survey_1': 'TextEdit', 'Offshore Marine & Geophysical survey_1': 'TextEdit', });
+lyr_Sumur_Eksplorasi_1.set('fieldLabels', {'Point': 'inline label - visible with data', 'X': 'inline label - visible with data', 'Y': 'inline label - visible with data', 'LONGITUDE': 'inline label - visible with data', 'LATITUDE': 'inline label - visible with data', 'DATUM': 'inline label - visible with data', 'ZONA_UTM': 'inline label - visible with data', 'Status': 'inline label - visible with data', 'field_2': 'inline label - visible with data', 'CSO/ FS': 'inline label - visible with data', 'Penentuan Datum Koordinat': 'inline label - visible with data', 'Penyiapan Data/ peta tematik pendukung operasi (Peta Tutupan Lahan, Peta Administrasi, Geologi, Citra Satelit/ Foto Udara, Kehutanan, Peta Wilayah Kerja)': 'inline label - visible with data', 'Survey Pendahuluan/ Scouting Usulan Lokasi Pemboran': 'inline label - visible with data', 'Survey Topografi untuk Penyusunan DED': 'inline label - visible with data', 'field_8': 'inline label - visible with data', 'PLANNING': 'inline label - visible with data', 'Survey Pendahuluan/ Scouting Usulan Lokasi Pemboran_1': 'inline label - visible with data', 'Penyiapan dan Pembuatan Peta Desain Lokasi': 'inline label - visible with data', 'Pemasangan dan pengukuran titik kerangka pemetaan (BM) di lokasi': 'inline label - visible with data', 'Survey Topografi (stake out, akses jalan, cut & fill, peta situasi)': 'inline label - visible with data', 'Survei Inventarisasi Pemilik Lahan': 'inline label - visible with data', 'Offshore Survey hidrography/bathymetry': 'inline label - visible with data', 'field_16': 'inline label - visible with data', 'SITE PREPARATION / CONSTRUCTION': 'inline label - visible with data', 'Survei/ Pengukuran koordinat definitive cellar dengan GNSS': 'inline label - visible with data', 'Survei Foto Udara (drone) Lokasi Sumur RFD': 'inline label - visible with data', 'Pemetaan as built lokasi sumur': 'inline label - visible with data', 'Offshore Rig Positioning': 'inline label - visible with data', 'Offshore Meteorology-Ocean (Met-ocean) survey': 'inline label - visible with data', 'Offshore Marine & Geophysical survey': 'inline label - visible with data', 'field_24': 'inline label - visible with data', 'DRILLING': 'inline label - visible with data', 'Monitoring lokasi (Pondasi, Kemiringan rig, Survey drone)': 'inline label - visible with data', 'Updating data ke geodatabase': 'inline label - visible with data', 'Offshore Rig Positioning_1': 'inline label - visible with data', 'Offshore Meteorology-Ocean (Met-ocean) survey_1': 'inline label - visible with data', 'Offshore Marine & Geophysical survey_1': 'inline label - visible with data', });
+lyr_Sumur_Eksplorasi_1.on('precompose', function(evt) {
+    evt.context.globalCompositeOperation = 'normal';
+});
